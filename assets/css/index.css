@@ -1,0 +1,14 @@
+.iconfont{
+  margin-right: 10px;
+}
+.layui-icon{
+  margin-right: 8px;
+  margin-left: 20px;
+}
+iframe{
+  height: 100%;
+  width: 100%;
+}
+.layui-body{
+  overflow: hidden;
+}
