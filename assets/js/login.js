@@ -34,9 +34,67 @@
       /^[\S]{6,12}$/
       ,'密码必须6到12位，且不能出现空格'
     ] 
-  });      
+  });   
 
+  //==========================  注册 =========================
+ 
+
+  // $('.regiBox form').on('submit',function(e){
+  //   e.preventDefault()
+  //   let data = $(this).serialize()
+
+  //   // 发送ajax请求
+  //   axios.post('http://api-breakingnews-web.itheima.net/api/reguser',data).then((res)=>{
+  //     // console.log(res);
+  //     if(res.data.status !== 0 ){
+  //       return layer.msg(res.data.message)
+  //     }else{
+  //       layer.msg('注册成功! 请登录')
+  //       // 展示登陆界面 模拟点击
+  //       $('#gotoLogin').click()
+  //     }
+
+  //   })
+  // })
+
+  $('.regiBox form').on('submit',function(e){
+    e.preventDefault()
+    // console.log($(this).serialize());
+    let data = $(this).serialize() // 拿到form表单里面的name属性的值
+    axios.post('/api/reguser',data).then((res)=>{
+      console.log(res);
+      if (res.data.status===1) {
+        return layer.msg(res.data.message)
+      }else{
+        layer.msg('注册成功!')
+        $('#gotoLogin').click()
+      }
+    })
+  })
+  //========================== 登录 ============================
+
+  $('.loginBox form').on('submit',function(e){
+    e.preventDefault()
+    let data = $(this).serialize()
+    axios.post('/api/login',data).then(function(res){
+      if(res.data.status!==0){
+        return layer.msg(res.data.message+'账号或密码错误')
+      }else{
+        //登陆成功
+        layer.msg('登录成功,即将跳转到首页',{time: 2000},function(){
+          // 跳转页面
+          location.href = '/home/index.html'
+        })
+        // 需要本地存储====>获取服务器响应回来的token信息(随机码),方便后期使用token
+        localStorage.setItem('token',res.data.token)
+      }
+    })
+  })  
 })
+
+
+
+
 
 
 
