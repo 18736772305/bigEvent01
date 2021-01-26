@@ -86,7 +86,7 @@
       //登陆成功
       layer.msg('登录成功,即将跳转到首页', { time: 2000 }, function () {
         // 跳转页面
-        // location.href = '/home/index.html'
+        location.href = '/home/index.html'
       })
       // 需要本地存储====>获取服务器响应回来的token信息(随机码),方便后期使用token
       localStorage.setItem('token', res.data.token)

@@ -19,7 +19,7 @@ axios.interceptors.request.use(
 
 // // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
-  console.log(response);
+  // console.log(response);
   if (response.data.status === 1 && response.data.message == '登录失败!') {
     // 用户的身份认证失败
     localStorage.removeItem('token')

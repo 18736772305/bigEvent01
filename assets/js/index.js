@@ -1,5 +1,5 @@
 // 发送ajax请求获取用户信息
-
+//============================== 发送ajax请求获取用户信息 ========================
 function getUserInfo() {
   axios.get('/my/userinfo',{
     //  headers: {
@@ -22,9 +22,9 @@ function getUserInfo() {
   // }).then((res)=>{console.log(res);})
 }
 getUserInfo()
-
+// ============================ 处理头像和昵称 ============================
 function avatarAndName(res){
-  // ==> 处理头像昵称
+  // ==> 处理头像和昵称
   // console.log(res);
   // 处理名字优先展示nickname
   let name = res.data.nickname || res.data.username
@@ -42,7 +42,7 @@ function avatarAndName(res){
     // $('.layui-nav-img').hide()
   }
 }
-// ===================== 退出 ==================
+// ============================== 退出 ==============================
 $('#logoutBtn').on('click',function(){
   // 弹窗提示是否退出
   layer.confirm('确定退出吗?', {icon: 3, title:'提示'}, function(index){
