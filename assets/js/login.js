@@ -10,9 +10,9 @@
   // 去登录
   $('#gotoLogin').on('click', function () {
     // 显示注册界面
-    $('.regiBox').hide()
-    // 隐藏登录界面
     $('.loginBox').show()
+    // 隐藏登录界面
+    $('.regiBox').hide()
   })
 
 
@@ -62,7 +62,7 @@
     // console.log($(this).serialize());
     let data = $(this).serialize() // 拿到form表单里面的name属性的值
     axios.post('/api/reguser', data).then((res) => {
-      console.log(res);
+      // console.log(res);
       if (res.data.status === 1) {
         return layer.msg(res.data.message)
       } else {
@@ -77,7 +77,7 @@
     e.preventDefault()
     let data = $(this).serialize()
     axios.post('/api/login', data).then(function (res) {
-      console.log(res);
+      // console.log(res);
       // layer.msg(res.data.message+'账号或密码错误')
       if (res.data.status !== 0) {    // 登录失败
         // console.log(1111);

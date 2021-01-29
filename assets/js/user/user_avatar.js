@@ -25,7 +25,7 @@ $('#file').change(function () { // 获取文件域的状态
   // console.log('选中的状态改变了');
   // 找到选择的图片
   // console.dir(this.files);
-  console.log(this.files[0]);
+  // console.log(this.files[0]);
   let fileObj = this.files[0]
   // 如果file不存在,用户没有选择图片,后续操作就不执行
   if (!fileObj) {
@@ -60,14 +60,14 @@ $('#sure').click(function () {
       console.log(res);
     }); */
   axios.post('/my/update/avatar','avatar=' + encodeURIComponent(str)).then((res)=>{
-    console.log(res);
+    // console.log(res);
     if(res.data.status!==0){ // 如果失败提示
       return layer.msg(res.data.message)
     }
     // 成功的提示
     layer.msg(res.data.message)
     // 成功后要同步上面两个用户的头像
-    console.log(window.parent);// 找到<iframe>的父亲window,里面有写好的getUserInfo()方法重新调用绘制用户头像信息
+    // console.log(window.parent);// 找到<iframe>的父亲window,里面有写好的getUserInfo()方法重新调用绘制用户头像信息
     window.parent.getUserInfo()
   })
 

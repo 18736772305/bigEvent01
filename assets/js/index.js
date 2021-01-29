@@ -12,6 +12,7 @@ function getUserInfo() {
       return layer.msg('获取用户信息失败')
     }
     // 获取用户信息成功 ==> 处理头像昵称
+    // console.log(res.data);
     avatarAndName(res.data)
   })
   // axios({
